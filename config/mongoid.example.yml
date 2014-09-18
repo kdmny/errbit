@@ -31,10 +31,8 @@ test:
 production:
   sessions:
     default:
-      database: <%= ENV['MONGOID_DATABASE'] %>
+      database: errbit_development
       hosts:
-        - '<%=ENV["MONGOID_HOST"]%>:<%=ENV["MONGOID_PORT"]%>'
-      username: <%= ENV['MONGOID_USERNAME'] %>
-      password: <%= ENV['MONGOID_PASSWORD'] %>
+        - localhost:27017
   options:
     identity_map_enabled: true
