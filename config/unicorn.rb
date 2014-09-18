@@ -3,9 +3,9 @@ timeout 30
 
 working_directory "/var/www/apps/errbit/current"
 
-listen "/tmp/web_server.sock", :backlog => 64
+listen "0.0.0.0:8080", :backlog => 64
 
-pid '/tmp/web_server.pid'
+pid '/var/www/apps/errbit/shared/pids/unicorn.pid'
 
 stderr_path "/var/www/apps/errbit/shared/log/unicorn.stderr.log"
 stdout_path "/var/www/apps/errbit/shared/log/unicorn.stdout.log"
@@ -17,7 +17,7 @@ GC.respond_to?(:copy_on_write_friendly=) and
 check_client_connection false
 
 before_fork do |server, worker|
-	old_pid = '/tmp/web_server.pid.oldbin'
+	old_pid = '/var/www/apps/errbit/shared/pids/unicorn.pid.oldbin'
 	if File.exists?(old_pid) && server.pid != old_pid
 		begin
 			Process.kill("QUIT", File.read(old_pid).to_i)
