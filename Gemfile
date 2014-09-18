@@ -87,7 +87,7 @@ end
 
 group :development do
   gem 'capistrano', '~> 2.0', :require => false
-
+  gem 'rvm-capistrano'
   # better errors
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -109,9 +109,7 @@ group :test do
   gem 'mongoid-rspec', :require => false
 end
 
-group :heroku, :production do
-  gem 'unicorn', :require => false
-end
+gem 'unicorn', :require => false
 
 
 # Gems used only for assets and not required
