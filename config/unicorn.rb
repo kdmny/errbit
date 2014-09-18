@@ -1,7 +1,7 @@
 worker_processes 3
 timeout 30
 
-working_directory "/var/www/apps/errbit"
+working_directory "/var/www/apps/errbit/current"
 
 listen "/tmp/web_server.sock", :backlog => 64
 
